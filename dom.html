@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Subscribe_Button {
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .is_Subcribed{
+            background: rgb(240, 240, 240);
+            color: black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p>youtubr Subscribe button</p>
+    <button class="SubscribeButton Subscribe_Button" onclick="
+    
+    subscribe()
+    ">subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+
+
+    <input class="price" placeholder="cost of order" onkeydown="
+        WhileEnter(event)
+        
+        
+        ">
+    <button onclick="
+        calculateTotal()
+        ">calculate</button>
+    <p class="Total"></p>
+
+
+    <p class="writing"></p>
+    <script>
+        function subscribe() {
+            const SubscribeButton = document.querySelector('.SubscribeButton')
+            SubscribeButton.classList.add('is_Subcribed');
+            if (SubscribeButton.innerHTML === 'subscribe') {
+                SubscribeButton.innerHTML = 'subscribed'
+            } else {
+                SubscribeButton.innerHTML = 'subscribe'
+                SubscribeButton.classList.remove('is_Subcribed');
+            }
+        }
+
+        function WhileEnter(e) {
+            if (e.key === 'Enter') {
+                calculateTotal();
+            }
+        }
+        function calculateTotal() {
+            const price = document.querySelector('.price');
+            let priceValue = Number(price.value);
+            const Total = document.querySelector('.Total')
+            if (priceValue < 40) {
+                priceValue += 10;
+
+
+
+            }
+            Total.innerHTML = `${priceValue}`;
+        }
+
+    </script>
+</body>
+
+</html>
